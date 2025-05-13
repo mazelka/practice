@@ -1,0 +1,20 @@
+name: Output event details
+on: 
+  issues:
+    types: opened
+jobs:
+  output:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output event details
+        run: |
+          echo "Event Name: ${{ github.event_name }}"
+          echo "Event Action: ${{ github.event.action }}"
+          echo "Event Payload: ${{ toJson(github.event) }}"
+          echo "Event Repository: ${{ github.event.repository.name }}"
+          echo "Event Issue Number: ${{ github.event.issue.number }}"
+          echo "Event Issue Title: ${{ github.event.issue.title }}"
+          echo "Event Issue Body: ${{ github.event.issue.body }}"
+          echo "Event Issue State: ${{ github.event.issue.state }}"
+          echo "Event Issue URL: ${{ github.event.issue.html_url }}"
+          echo "Event Issue User Login: ${{ github.event.issue.user.login }}"
