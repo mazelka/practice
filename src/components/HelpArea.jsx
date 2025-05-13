@@ -25,7 +25,7 @@ function HelpArea() {
       {HELP_ITEMS.map((item) => (
         <HelpBox key={item.id} title={item.title} text={item.text} />
       ))}
-    .</ section>
+    .< section>
   );
 }
 
