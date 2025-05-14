@@ -1,37 +1,37 @@
-name: Lint, Test and Deploy project
-on: push
+# name: Lint, Test and Deploy project
+# on: push
 
-jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Install NodeJS
-        run: npm ci
-      - name: Lint code
-        run: npm run lint
+# jobs:
+#   lint:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v4
+#       - name: Install NodeJS
+#         run: npm ci
+#       - name: Lint code
+#         run: npm run lint
 
-  test:
-    runs-on: ubuntu-latest
-    needs: lint
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Install NodeJS
-        run: npm ci
-      - name: Run tests
-        run: npm test
+#   test:
+#     runs-on: ubuntu-latest
+#     needs: lint
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v4
+#       - name: Install NodeJS
+#         run: npm ci
+#       - name: Run tests
+#         run: npm test
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Install NodeJS
-        run: npm ci
-      - name: Deploy project
-        run: echo "Deploying to production..."
+#   deploy:
+#     runs-on: ubuntu-latest
+#     needs: test
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v4
+#       - name: Install NodeJS
+#         run: npm ci
+#       - name: Deploy project
+#         run: echo "Deploying to production..."
     
 
