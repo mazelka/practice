@@ -47,8 +47,6 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: build-artifact
-      - name: Unzip 
-        run:  tar -xvf build-artifact
       - name: Output artifact
         run: ls -la
       - name: Deploy project
