@@ -99,4 +99,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print deployment result
-        run: echo "${{ needs.reusable.outputs.outcome }}"
+        run: echo "${{ needs.reusable.outputs.result }}"
