@@ -3,6 +3,8 @@ on:
     pull_request:
       types: [opened, synchronize]
     workflow_dispatch:
+    push:
+        branches: [test-wf]
 
 jobs:
   deploy:
@@ -19,4 +21,4 @@ jobs:
       - name: Build code
         run: npm run build
       - name: Deploy project
-        run: echo "Deploying..."
+        run: echo "Deploying project..."
