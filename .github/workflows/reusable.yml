@@ -10,9 +10,15 @@ on:
         MY_GITHUB_TOKEN:
             required: true
             description: The GitHub token to use for authentication.
+    outputs:
+        result:
+            description: The result of the workflow.
+            value: ${{ jobs.deploy.outputs.outcome }}
 
 jobs:
   deploy:
+    outputs:
+        outcome: ${{ steps.result.outputs.step-result }}
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -25,3 +31,8 @@ jobs:
         run: echo "All good"
       - name: Show token
         run: echo "${{ secrets.MY_GITHUB_TOKEN }}"
+      - name: Set output
+        id: result
+        run: echo "step-result=success" >> $GITHUB_OUTPUT
+
+

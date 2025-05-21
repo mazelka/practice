@@ -93,3 +93,10 @@ jobs:
       artifact_name: dist-files
     secrets:
       MY_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  print-deploy-result:
+    needs: reusable
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print deployment result
+        run: echo "${{ needs.reusable.outputs.outcome }}"
