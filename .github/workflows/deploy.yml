@@ -74,12 +74,7 @@ jobs:
         run: echo "${{ needs.build.outputs.script-file }}"
       - name: Deploy project
         run: echo "Deploying project..."
-    
-  reusable:
-    needs: build
-    uses: ./.github/workflows/reusable.yml
-    with:
-      artifact_name: build-artifact
+  
 
 
 
