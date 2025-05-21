@@ -85,3 +85,7 @@ jobs:
     steps:
       - name: Output report
         run: echo "Report generation step"
+
+  reusable:
+    needs: deploy
+    uses: ./.github/workflows/reusable.yml
