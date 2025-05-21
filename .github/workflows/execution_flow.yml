@@ -85,9 +85,9 @@ jobs:
     steps:
       - name: Output report
         run: echo "Report generation step"
-        
+
   reusable:
     needs: build
     uses: ./.github/workflows/reusable.yml
     with:
-      artifact_name: build-artifact
+      artifact_name: dist-files
