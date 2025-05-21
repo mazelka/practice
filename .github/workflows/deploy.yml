@@ -76,7 +76,10 @@ jobs:
         run: echo "Deploying project..."
     
   reusable:
-    needs: deploy
+    needs: build
     uses: ./.github/workflows/reusable.yml
+    with:
+      artifact_name: build-artifact
+
 
 
