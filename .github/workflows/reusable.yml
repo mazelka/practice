@@ -6,6 +6,10 @@ on:
             required: true
             type: string
             description: The name of the artifact to download.
+    secrets:
+        GITHUB_TOKEN:
+            required: true
+            description: The GitHub token to use for authentication.
 
 jobs:
   deploy:
@@ -19,3 +23,5 @@ jobs:
         run: ls -al
       - name: Output event data
         run: echo "All good"
+      - name: Show token
+        run: echo "${{ secrets.GITHUB_TOKEN }}"

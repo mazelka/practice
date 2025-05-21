@@ -91,3 +91,5 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       artifact_name: dist-files
+    secrets:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
