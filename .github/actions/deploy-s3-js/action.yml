@@ -1,0 +1,5 @@
+name: 'Deploy to aws s3'
+description: 'Deploy to aws s3'
+runs:
+  using: 'node20'
+  main: 'main.js'
