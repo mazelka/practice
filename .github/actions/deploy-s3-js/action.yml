@@ -4,7 +4,7 @@ inputs:
   bucket:
     description: 'S3 bucket name'
     required: true
-  bucket_region:
+  region:
     description: 'S3 bucket region'
     required: false
     default: 'us-east-1'
