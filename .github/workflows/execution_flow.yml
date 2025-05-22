@@ -60,8 +60,18 @@ jobs:
           name: dist-files
       - name: Output contents
         run: ls
-      - name: Deploy
-        run: echo "Deploying..."
+      - name: Output deploy message
+        run: echo "Start deploying..."
+      - name: Deploy to S3
+        id: deploy
+        uses: ./.github/actions/deploy-s3-js
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        with:
+          bucket: gh-actions-mazelka
+          dist-folder: ./dist
+          bucket_region: 'us-east-1'
   information:
     runs-on: ubuntu-latest
     steps:
