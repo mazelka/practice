@@ -2,7 +2,7 @@ name: Website Deployment
 on:
   push:
     branches:
-      - docker-action
+      - oidc
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -53,6 +53,10 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+      # s3: write
     steps:
       - name: Get code
         uses: actions/checkout@v4
@@ -63,6 +67,11 @@ jobs:
           path: ./dist
       - name: Output contents
         run: ls
+      - name: Get AWS permissions
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::117562633289:role/gh-actions-mazelka
+          aws-region: us-east-1
       - name: Output deploy message
         run: echo "Start deploying..."
       - name: Deploy to S3
