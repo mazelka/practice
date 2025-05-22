@@ -20,6 +20,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Load and cache deps
         uses: ./.github/actions/cached-deps
+        with:
+          caching: false
       - name: Test code
         id: test_code
         run: npm run test
