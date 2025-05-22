@@ -16,6 +16,6 @@ function run() {
         });
     const websiteURL = `http://${bucket}.s3-website-${region}.amazonaws.com`;
     core.info(`Website URL: ${websiteURL}`);
-    core.setOutput('websiteURL', websiteURL);
+    core.setOutput('website-url', websiteURL);
 }
 run();
