@@ -54,6 +54,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Get code
+        uses: actions/checkout@v4
       - name: Get build artifacts
         uses: actions/download-artifact@v4
         with:
@@ -72,10 +74,3 @@ jobs:
           bucket: gh-actions-mazelka
           dist-folder: ./dist
           bucket_region: 'us-east-1'
-  information:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get code
-        uses: actions/checkout@v4
-      - name: Runs custom action
-        uses: ./.github/actions/deploy-s3-js
