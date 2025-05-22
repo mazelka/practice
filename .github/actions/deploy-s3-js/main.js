@@ -14,6 +14,7 @@ function run() {
         .catch((error) => {
             core.setFailed(`Deployment to S3 failed: ${error.message}`);
         });
-    core.info(`Bucket: ${bucket}`);
+    const websiteURL = `http://${bucket}.s3-website-${region}.amazonaws.com`;
+    core.setOutput('websiteURL', websiteURL);
 }
 run();

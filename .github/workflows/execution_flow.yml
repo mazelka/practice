@@ -75,3 +75,6 @@ jobs:
           bucket: gh-actions-mazelka
           dist-folder: ./dist
           region: 'us-east-1'
+      - name: Output website URL
+        run: |
+          echo "Website URL: ${{ steps.deploy.outputs.website-url }}"
