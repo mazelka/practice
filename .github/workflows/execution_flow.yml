@@ -2,7 +2,7 @@ name: Website Deployment
 on:
   push:
     branches:
-      - docker-actions
+      - docker-action
 jobs:
   lint:
     runs-on: ubuntu-latest
